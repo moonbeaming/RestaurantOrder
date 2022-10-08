@@ -8,8 +8,8 @@ document.addEventListener('click', function(e){
         getOrderSummary(e.target.dataset.additem)
     }
 
-    else if(e.target.dataset.completeOrder){
-
+    else if(e.target.id === "complete-order-btn"){
+        openCardDetailsForm()
     }
 
 })
@@ -47,6 +47,11 @@ function getOrderSummary(orderID){
     console.log(orderPrice)
 
     return orderSummaryHTML
+}
+
+
+function openCardDetailsForm(){
+    document.getElementsByClassName('card-details-modal')[0].classList.remove('hidden')
 }
 
 function getPageHTML(){
