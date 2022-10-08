@@ -1,0 +1,206 @@
+body{
+    margin: auto;
+    width: 100%;
+    max-width: 600px;
+    font-family: 'Smythe', cursive;
+
+}
+
+button{
+    font-family: 'Verdana', sans-serif;
+}
+
+header {
+    width: 100%;
+    max-width: 600px;
+    height: 20%;
+    max-height: 167px;
+    color: white;
+    
+}
+
+.banner {
+    width: 100%;
+    height: 100%;
+    position: relative
+}
+
+.restaurant-name{
+    position: absolute;
+    right: 0px;
+    left: 10%;
+    top:5%;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: normal;
+}
+
+.retaurant-motto{
+    position: absolute;
+    right: 0px;
+    left: 10%;
+    top:12%;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: normal;
+}
+
+main{
+    padding: 30px 50px 50px 50px;
+}
+
+.item{
+    border-bottom : 1px solid #D2D2D2;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding: 30px 0 40px 0;
+}
+
+.item-icon{
+    width: 100%;
+    max-width: 70px;
+}
+
+.item-icon-div{
+    flex: 2;
+}
+
+.item-description{
+    flex: 6;
+    padding-left: 8%;
+    padding-right: 8%;
+    /* border: 1px solid red; */
+}
+
+.item-name{
+    font-weight: normal;
+    font-size: 28px;
+}
+
+.item-ingredients{
+    color: #8B8B8B;
+    padding: 10px 0 10px 0;
+    /* border: 1px solid red; */
+}
+
+.item-price{
+    font-size: 20px;
+}
+
+.add-item-div{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.add-item-btn{
+    border-radius: 100px;
+    border: 1px solid #DEDEDE;
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+}
+
+.add-item-btn:hover{
+    height: 55px;
+    width: 55px;
+    background-color: #DEDEDE;
+}
+
+.order-header{
+    text-align: center;
+    font-size: 28px;
+    font-weight: normal;
+    padding-bottom: 20px;
+}
+
+.ordered-item{
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.ordered-item-name{
+    flex: 1;
+    font-size: 28px;
+}
+
+.ordered-item-price{
+    font-size: 20px;
+}
+
+.remove-item-btn-div{
+    flex: 7;
+}
+
+.remove-item-btn{
+    border: none;
+    background-color: transparent;
+    color: #BBBBBB;
+    font-size: 12;
+}
+
+.ordered-item-price{
+    flex: 1;
+    text-align: end;
+}
+
+.order-summary-bottom{
+    display: flex;
+    padding: 20px 0 20px 0;
+    font-size: 28px;
+    align-items: center;
+    border-top: 2px solid black;
+}
+
+#order-total-price{
+    flex: 1;
+    text-align: end;
+    font-size: 20px;
+}
+
+.complete-order-btn-div{
+    text-align: center;
+}
+
+.complete-order-btn{
+    border: none;
+    border-radius: 3px;
+    background-color: #16DB99;
+    color: white;
+    /* padding: 20px; */
+    width: 100%;
+    max-width: 500px;
+    height: 60px;
+    max-height: 200px;
+    font-weight: bold;
+}
+
+.complete-order-btn:hover{
+    background-color: #15b580;
+    font-size: 14px;
+}
+
+
+.card-details-form{
+    box-shadow: 0 5px 40px black;
+    background-color: white;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden{
+    display: none;
+}

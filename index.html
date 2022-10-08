@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <script src="index.js" type="module"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img class="banner" src="images/banner.png">
+        <h1 class="restaurant-name">Jimmy's Diner</h1>
+        <h3 class="retaurant-motto">The best burgers and pizzas in town</h3>
+    </header>
+    <main>
+        <div class="menu" id="menuHTML">
+        </div>
+        <div class="your-order hidden">
+            <h3 class="order-header">Your order</h3>
+            <div id="order-summary"></div>
+            <div class="order-summary-bottom">
+                <div>Total price</div>
+                <div id="order-total-price"></div>
+            </div>
+            <div class="complete-order-btn-div">
+                <button class="complete-order-btn">Complete order</button>
+            </div>
+        </div>
+        <modal>
+            <form class="card-details-form">
+                <div>Enter card details</div>
+                <input type="text">
+                <input type="number">
+                <input type="number">
+                <button>Pay</button>
+            </form>
+        </modal>
+    </main>
+</body>
+</html>
