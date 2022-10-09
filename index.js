@@ -77,7 +77,14 @@ function getOrderSummary(addOrRemove, orderID){
     })
     document.getElementById('order-total-price').innerHTML = `<div id="order-total-price">$${orderPrice}</div>`
     document.getElementById('order-summary').innerHTML = orderSummaryHTML
-    document.getElementsByClassName('your-order')[0].classList.remove('hidden')
+
+    if (orderedItems.length > 0){
+        document.getElementsByClassName('your-order')[0].classList.remove('hidden')
+    }
+    else{
+        document.getElementsByClassName('your-order')[0].classList.add('hidden')
+    }
+
 
     return orderSummaryHTML
 }
