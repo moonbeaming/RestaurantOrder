@@ -30,14 +30,19 @@
             </div>
         </div>
     </main>
-    <modal class="card-details-modal hidden">
+    <modal id="card-details-modal">
         <form class="card-details-form">
+            <button class="close-btn" type="button">X</button>
             <div class="card-details-title">Enter card details</div>
             <input type="text" placeholder="Enter your name">
             <input type="number" placeholder="Enter card number">
             <input type="number" placeholder="Enter CVV">
-            <button>Pay</button>
+            <button id="pay-btn" type="button">Pay</button>
         </form>
+    </modal>
+    <modal class="success-modal">
+        <button class="close-btn" id="success-modal-btn" type="button">X</button>
+        Thanks! Your order is on its way!
     </modal>
 </body>
 </html>

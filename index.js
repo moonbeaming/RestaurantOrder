@@ -3,27 +3,61 @@ import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
 let orderedItems = []
 
+let modals = document.getElementsByTagName('modal')
+
 document.addEventListener('click', function(e){
+    console.log(e)
     if(e.target.dataset.additem){
-        getOrderSummary(e.target.dataset.additem)
+        getOrderSummary("add", e.target.dataset.additem)
+        
     }
 
     else if(e.target.id === "complete-order-btn"){
         openCardDetailsForm()
     }
 
+    else if(e.target.id === "pay-btn"){
+        openSuccessModal()
+    }
+
+    else if(e.target.className === "close-btn"){
+        closeModal()
+        // if(e.target.id === "success-modal-btn"){
+        //     getOrderSummary(null)
+        // }
+    }
+
+    else if(e.target.className === "remove-item-btn"){
+        removeItem(e.target.id)
+    }
+
 })
 
 
-
-function getOrderSummary(orderID){
+function getOrderSummary(addOrRemove, orderID){
     let orderSummaryHTML =''
 
     let orderObj = menuData.filter(function(item){
         return item.id == orderID
     })[0]
 
-    orderedItems.push(orderObj)
+    if (addOrRemove === "add"){
+        orderedItems.push(orderObj)
+    }
+
+    else if (addOrRemove === "remove"){
+        const index = orderedItems.indexOf(orderID)
+        orderedItems.splice(index, 1)
+
+
+        // orderedItems = orderedItems.filter(function(eee){
+        //     console.log("value of eee is")
+        //     console.log(eee)
+        //     return eee.id!==orderID
+        // })
+    }
+
+    console.log("ordered items are")
     console.log(orderedItems)
 
     let orderPrice = 0
@@ -34,7 +68,7 @@ function getOrderSummary(orderID){
         <div class="ordered-item">
             <div class="ordered-item-name">${item.itemName}</div>
             <div class="remove-item-btn-div">
-                <button class="remove-item-btn">remove</button>
+                <button class="remove-item-btn" id="${item.id}">remove</button>
             </div>
             <div class="ordered-item-price">$${item.itemPrice}</div>
         </div>
@@ -44,14 +78,30 @@ function getOrderSummary(orderID){
     document.getElementById('order-total-price').innerHTML = `<div id="order-total-price">$${orderPrice}</div>`
     document.getElementById('order-summary').innerHTML = orderSummaryHTML
     document.getElementsByClassName('your-order')[0].classList.remove('hidden')
-    console.log(orderPrice)
 
     return orderSummaryHTML
 }
 
 
 function openCardDetailsForm(){
-    document.getElementsByClassName('card-details-modal')[0].classList.remove('hidden')
+    document.getElementById('card-details-modal').style.display = "flex"
+}
+
+function openSuccessModal(){
+    document.getElementById('card-details-modal').style.display = "none"
+    document.getElementsByClassName('success-modal')[0].style.display = "flex"
+}
+
+function closeModal(){
+    for (let i in modals){
+        modals[i].style.display="none"
+    }
+}
+
+
+function removeItem(i){
+    console.log(i)
+    getOrderSummary("remove", i)
 }
 
 function getPageHTML(){

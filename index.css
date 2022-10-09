@@ -199,16 +199,8 @@ main{
     flex-direction: column;
     padding: 25px;
     font-family: Verdana, sans-serif;
-    /* flex-wrap: wrap; */
     gap: 25px;
     margin: 0 auto;
-    /* z-index: 1000; */
-    /* border: 1px solid red; */
-    /* left: 0;
-    right: 0;
-    align-items: center;
-    justify-content: center; */
-    /* position: fixed; */
 }
 
 .card-details-title{
@@ -224,23 +216,59 @@ main{
     border: 1px solid #757575;
 }
 
-.card-details-modal{
-    /* position: fixed; */
-    /* margin: auto;
-    top: 80px; */
-    /* left: 0;
-    right: 0; */
+#card-details-modal{
+    position: fixed;
+    /* margin: auto; */
+    top: 80px;
+    left: 0;
+    right: 0;
     /* align-items: center;
     justify-content: center; */
-    display: block;
+    display: none;
 }
 
-modal button{
+#pay-btn{
     background-color: #16DB99;
     padding: 25px 30px;
     border: none;
     border-radius: 4px;
     margin-top: 30px;
+}
+
+.success-modal{
+    box-shadow: 10px 5px 40px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    width: 80%;
+    max-width: 340px;
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    padding: 60px 0;
+    font-family: Verdana, sans-serif;
+    margin: 0 auto;
+    position: fixed;
+    top: 180px;
+    left: 0;
+    right: 0;
+}
+
+.close-btn{
+    /* padding: 25px 30px; */
+    position: absolute;
+    top: 8%;
+    right: 3%;
+    width: 30px;
+    height: 30px;
+    /* border: none; */
+    border-radius: 50px;
+    background-color: transparent;
+    border: 1px solid #DEDEDE;
+    /* border: 2px solid #555; */
+    color: #555;
+}
+
+.close-btn:hover{
+    background-color: #DEDEDE;
 }
 
 .hidden{
