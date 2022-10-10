@@ -13,16 +13,20 @@ header {
     width: 100%;
     max-width: 600px;
     height: 20%;
+    min-width: 500px;
     max-height: 167px;
     color: white;
-    
+    overflow: hidden
 }
 
 .banner {
     width: 100%;
-    height: 100%;
-    position: relative
+    /* min-width: 80px; */
+    max-width: 600px;
+    position: relative;
+    overflow: hidden
 }
+
 
 .restaurant-name{
     position: absolute;
@@ -31,22 +35,36 @@ header {
     top:5%;
     width: 100%;
     max-width: 600px;
+    /* height: 5%;
+    max-height: 167px; */
     margin-left: auto;
     margin-right: auto;
     font-weight: normal;
 }
 
+
 .restaurant-motto{
     position: absolute;
     right: 0px;
     left: 10%;
-    top:12%;
+    top: 14%;
     width: 100%;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     font-weight: normal;
 }
+
+@media (max-width: 550px) {
+    .restaurant-name {
+        /* width: 600px; */
+        top: 2%;
+    }
+    .restaurant-motto{
+        top: 8%;
+    }
+  }
+
 
 main{
     padding: 30px 50px 50px 50px;
@@ -273,4 +291,12 @@ main{
 
 .hidden{
     display: none;
+}
+
+.circle{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: red;
+    margin: 5px;
 }
