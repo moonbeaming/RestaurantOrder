@@ -1,15 +1,18 @@
 import { menuData } from "./data.js";
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
+// import anime from 'animejs/lib/anime.es.js';
+// import anime from "../../../../Luna/node_modules/animejs/lib/anime.es.js"
 
 let orderedItems = []
 
 let modals = document.getElementsByTagName('modal')
+let orderSummary = document.getElementById('order-summary')
+let orderDiv = document.getElementsByClassName('your-order')[0]
 
 document.addEventListener('click', function(e){
     console.log(e)
     if(e.target.dataset.additem){
         getOrderSummary("add", e.target.dataset.additem)
-        
     }
 
     else if(e.target.id === "complete-order-btn"){
@@ -30,7 +33,6 @@ document.addEventListener('click', function(e){
     else if(e.target.className === "remove-item-btn"){
         removeItem(e.target.id)
     }
-
 })
 
 
@@ -48,13 +50,6 @@ function getOrderSummary(addOrRemove, orderID){
     else if (addOrRemove === "remove"){
         const index = orderedItems.indexOf(orderID)
         orderedItems.splice(index, 1)
-
-
-        // orderedItems = orderedItems.filter(function(eee){
-        //     console.log("value of eee is")
-        //     console.log(eee)
-        //     return eee.id!==orderID
-        // })
     }
 
     console.log("ordered items are")
@@ -76,25 +71,35 @@ function getOrderSummary(addOrRemove, orderID){
 `
     })
     document.getElementById('order-total-price').innerHTML = `<div id="order-total-price">$${orderPrice}</div>`
-    document.getElementById('order-summary').innerHTML = orderSummaryHTML
+    orderSummary.innerHTML = orderSummaryHTML
 
     if (orderedItems.length > 0){
-        document.getElementsByClassName('your-order')[0].classList.remove('hidden')
+        orderDiv.classList.remove('hidden')
     }
     else{
-        document.getElementsByClassName('your-order')[0].classList.add('hidden')
+        orderDiv.classList.add('hidden')
     }
 
+    orderSummary.scrollIntoView({
+        behavior: 'smooth'
+    });
 
     return orderSummaryHTML
 }
 
-
 function openCardDetailsForm(){
     document.getElementById('card-details-modal').style.display = "flex"
+    loadCardDetailsModal.play()
+    // var rect = document.getElementById('card-details-modal').getBoundingClientRect();
 }
 
 function openSuccessModal(){
+    document.getElementById('card-details-modal').style.display = "flex"
+    // cardModalTimeline.play()
+    // successModalTimeline.play()
+    // document.getElementById('card-details-modal').style.setProperty("top",0);
+    // document.getElementById('card-details-modal').style.top = 0
+
     document.getElementById('card-details-modal').style.display = "none"
     document.getElementsByClassName('success-modal')[0].style.display = "flex"
 }
@@ -130,8 +135,9 @@ function getPageHTML(){
                             </div>
                         </div>
                         <div class="add-item-div">
-                            <button class="add-item-btn" data-additem="${item.id}">+</button>
+                        <button class="add-item-btn" data-additem="${item.id}">+</button>
                         </div>
+
                     </div>`
     })
     return menuHTML
@@ -144,3 +150,36 @@ function render(){
 
 render()
 
+
+var loadMenu = anime({
+    targets: ".item",
+    translateY: 250,
+    direction: "reverse",
+    opacity: 0,
+    easing: 'linear'
+})
+
+var loadCardDetailsModal = anime({
+    targets: "#card-details-modal",
+    translateY: -250, 
+    // opacity: 1
+})
+
+// var removeCardDetailsModal = anime({
+//     targets: "#card-details-modal",
+//     translateX: 250,
+//     // opacity: 1,
+// })
+
+var cardModalTimeline = anime.timeline({
+    targets: "#card-details-modal",
+    translateX: -550,
+    // opacity: 0,
+    // easing: 'linear',
+    duration: 600,
+})
+
+var successModalTimeline = anime.timeline({
+    targets: ".success-modal",
+    translateX: -550,
+})
