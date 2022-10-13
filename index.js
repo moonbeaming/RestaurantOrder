@@ -1,7 +1,5 @@
 import { menuData } from "./data.js";
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
-// import anime from 'animejs/lib/anime.es.js';
-// import anime from "../../../../Luna/node_modules/animejs/lib/anime.es.js"
 
 let orderedItems = []
 
@@ -10,7 +8,6 @@ let orderSummary = document.getElementById('order-summary')
 let orderDiv = document.getElementsByClassName('your-order')[0]
 
 document.addEventListener('click', function(e){
-    console.log(e)
     if(e.target.dataset.additem){
         getOrderSummary("add", e.target.dataset.additem)
     }
@@ -25,9 +22,6 @@ document.addEventListener('click', function(e){
 
     else if(e.target.className === "close-btn"){
         closeModal()
-        // if(e.target.id === "success-modal-btn"){
-        //     getOrderSummary(null)
-        // }
     }
 
     else if(e.target.className === "remove-item-btn"){
@@ -90,16 +84,10 @@ function getOrderSummary(addOrRemove, orderID){
 function openCardDetailsForm(){
     document.getElementById('card-details-modal').style.display = "flex"
     loadCardDetailsModal.play()
-    // var rect = document.getElementById('card-details-modal').getBoundingClientRect();
 }
 
 function openSuccessModal(){
     document.getElementById('card-details-modal').style.display = "flex"
-    // cardModalTimeline.play()
-    // successModalTimeline.play()
-    // document.getElementById('card-details-modal').style.setProperty("top",0);
-    // document.getElementById('card-details-modal').style.top = 0
-
     document.getElementById('card-details-modal').style.display = "none"
     document.getElementsByClassName('success-modal')[0].style.display = "flex"
 }
@@ -162,24 +150,5 @@ var loadMenu = anime({
 var loadCardDetailsModal = anime({
     targets: "#card-details-modal",
     translateY: -250, 
-    // opacity: 1
 })
 
-// var removeCardDetailsModal = anime({
-//     targets: "#card-details-modal",
-//     translateX: 250,
-//     // opacity: 1,
-// })
-
-var cardModalTimeline = anime.timeline({
-    targets: "#card-details-modal",
-    translateX: -550,
-    // opacity: 0,
-    // easing: 'linear',
-    duration: 600,
-})
-
-var successModalTimeline = anime.timeline({
-    targets: ".success-modal",
-    translateX: -550,
-})
