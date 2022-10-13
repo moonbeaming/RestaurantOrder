@@ -83,7 +83,6 @@ function getOrderSummary(addOrRemove, orderID){
 
 function openCardDetailsForm(){
     document.getElementById('card-details-modal').style.display = "flex"
-    loadCardDetailsModal.play()
 }
 
 function openSuccessModal(){
@@ -139,16 +138,4 @@ function render(){
 render()
 
 
-var loadMenu = anime({
-    targets: ".item",
-    translateY: 250,
-    direction: "reverse",
-    opacity: 0,
-    easing: 'linear'
-})
-
-var loadCardDetailsModal = anime({
-    targets: "#card-details-modal",
-    translateY: -250, 
-})
 
