@@ -34,7 +34,7 @@ From anime.js
 ### v1.0
 As stated above
 
-### v2.0
+### v1.1
 Upcoming:
 - Cleaner transitions from load, adding/removing items, and between modals (removing anime.js)
 - Adjust quantity in cart with + / - or keying in a number
